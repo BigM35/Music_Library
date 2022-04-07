@@ -1,12 +1,14 @@
-from logging import raiseExceptions
-from django.shortcuts import get_object_or_404
-from http.client import FOUND
-from django.shortcuts import render
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from rest_framework import status
-from .models import Car
-from .serializers import CarSerializer
-from cars import serializers
+from music.models import Music
+from music.serializers import MusicSerializer   
+from rest_framework import generics
 
 # Create your views here.
+
+class SnippetList(generics.ListCreateAPIView):
+    queryset = Music.objects.all()
+    serializer_class = MusicSerializer
+
+
+class SnippetDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Music.objects.all()
+    serializer_class = MusicSerializer
