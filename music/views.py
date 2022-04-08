@@ -1,4 +1,4 @@
-from music.models import Music, Song
+from music.models import Song
 from music.serializers import MusicSerializer   
 from rest_framework import generics
 from rest_framework.decorators import api_view
@@ -36,11 +36,11 @@ def song_detail(request, pk):
         song.delete()
         return Response(status = status.HTTP_204_NO_CONTENT)
 # TODO: Refactor after MVP to use Snippets (started) below
-# class SnippetList(generics.ListCreateAPIView):
+# class MusicList(generics.ListCreateAPIView):
 #    queryset = Music.objects.all()
 #    serializer_class = MusicSerializer
 
 
-# class SnippetDetail(generics.RetrieveUpdateDestroyAPIView):
+# class SongDetail(generics.RetrieveUpdateDestroyAPIView):
 #    queryset = Music.objects.all()
 #    serializer_class = MusicSerializer
