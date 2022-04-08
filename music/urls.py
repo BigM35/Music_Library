@@ -5,5 +5,6 @@ from music import views
 
 
 Urlpatterns = [
-	path('', views.MusicList.as_view())
+	path('', views.music_list),
+	path('<int:pk>', views.song_detail)
 ]
