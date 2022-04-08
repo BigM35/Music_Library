@@ -1,9 +1,7 @@
 from music.models import Song
 from music.serializers import MusicSerializer   
-from rest_framework import generics
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from logging import raiseExceptions
 from django.shortcuts import get_object_or_404
 from rest_framework import status
 
@@ -12,12 +10,12 @@ from rest_framework import status
 @api_view(['GET','POST'])
 def music_list(request):
     if request.method == 'GET':
-        music = Song.object.get()
+        music = Song.objects.all()
         serializer = MusicSerializer(music, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
         serializer = MusicSerializer(data = request.data)
-        serializer.is_valid(reised_exception = True)
+        serializer.is_valid()
         serializer.save()
         return Response(serializer.data, status = status.HTTP_201_CREATED)
 
@@ -29,7 +27,7 @@ def song_detail(request, pk):
         return Response(serializer.data)
     elif request.method == 'PUT':
         serializer = MusicSerializer(song, data = request.data)
-        serializer.is_valid(raise_exception = True)
+        serializer.is_valid()
         serializer.save()
         return Response(serializer.data)
     elif request.method == 'DELETE':
