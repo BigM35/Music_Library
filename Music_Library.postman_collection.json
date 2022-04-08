@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "bcfd9fbd-2002-40aa-9701-b4793dc5265b",
+		"name": "Music_Library",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get_all_music",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Add_new_song",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"title\": \"Shoot My Shot\",\n    \"artist\": \"Yung Bleu\",\n    \"album\": \" Investments 6\",\n    \"release_date\": \"2021-07-30\",\n    \"genre\": \"Hip-Hop/Rap\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/music/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"music",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update_songs",
+			"request": {
+				"method": "PUT",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_song",
+			"request": {
+				"method": "DELETE",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
